@@ -1,66 +1,35 @@
-var logic = require('./logic');
-describe('go to hell',()=>{
+var logic = require("./logic");
+const todoFunctions = require("./logic");
+describe("go to hell", () => {
+  test(" addTodo function should return a new array with the new todo", () => {
+    let actual = logic.addTodo([], { id: 1, b: "1" });
+    let expected = [{ id: 1, b: "1" }];
+    expect(actual).toEqual(expected);
+  });
 
-test("back to home",()=>{
-	expect(1).toBe(1);
+  test("addTodo function should return a new array with the new todo", () => {
+    let actual = logic.addTodo([{ id: 1, b: "1" }], { id: 2, b: "2" });
+    let expected = [
+      { id: 1, b: "1" },
+      { id: 2, b: "2" }
+    ];
+    expect(actual).toEqual(expected);
+  });
+
+  test("deleteTodo function should return a new array without the target todo", function() {
+    let todos = [
+      { id: 1, b: "1" },
+      { id: 2, b: "2" }
+    ];
+    let actual = logic.deleteTodo(todos, 2);
+    let expected = [{ id: 1, b: "1" }];
+    expect(actual).toEqual(expected);
+  });
+
+  test("deleteTodo function should return a new array without the target todo", function() {
+    let todos = [{ id: 1, b: "1" }];
+    let actual = logic.deleteTodo(todos, 1);
+    let expected = [];
+    expect(actual).toEqual(expected);
+  });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 	test('Example test', function(t) {
-//   t.pass();
-//   t.end();
-// });
-})
-
-
-// describe('What component aspect are you testing?', function() {
-
-//     test('What should the feature do?', function () {
-// 		const actual = double(1);
-// 		const expected = 2;
-// 		expect(actual).toBe(expected);
-//     });
-
-//     test('What return when i diescribe 20', function () {
-// 		const actual = double(10);
-// 		const expected = 20;
-// 		expect(actual).toBe(expected);
-//     });
-    
-// });
